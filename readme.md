@@ -42,7 +42,7 @@ App
  │ └── services
  │       └── data.service.ts
  ├──── shares
- │       ├── directives
+ │     ├── directives
  │   	 ├── commons
  │   	 ├── pipes
  │   	 ├── animations
@@ -52,15 +52,22 @@ App
  │
  ├──── cores
  │   ├── (+) authentication
- │   │    ├── http
- │   │    ├── http
- │   │    ├── http
- │   │    └── http
+ │   │    ├── authentication.guard.ts
+ │   │    ├── authentication.service.mock.ts
+ │   │    └── authentication.service.ts
+ │   ├── (+) authorize
+ │   │    ├── authorize.guard.ts
+ │   │    ├── authorize.service.mock.ts
+ │   │    └── authorize.service.ts
  │   ├── (+) http
- │   │    ├── http
- │   │    ├── http
- │   │    ├── http
- │   │    └── http
+ │   │    ├── cache.interceptor.ts
+ │   │    ├── api-prefix.interceptor.ts
+ │   │    ├── error-handler.interceptor.ts
+ │   │    ├── http-adapter.service.ts
+ │   │    ├── http-decorator.service.ts
+ │   │    ├── http-cache.service.ts
+ │   │    ├── utils.service.ts 
+ │   │    └── http.service.ts
  │   │	
  │   ├── i18n
  │   ├── logger
@@ -77,7 +84,7 @@ App
  │     │  	└── _my-feature-z.css|scss
  │     └───── libs
  │    	        ├── _imports.css|scss
- │        	└── _my-lib-import.css|scss
+ │        	    └── _my-lib-import.css|scss
  │
  ├──── assets
  │    	├── images
