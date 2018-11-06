@@ -4,9 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { extract } from '@app/core';
 import { AboutComponent } from './about.component';
 
-const routes: Routes = [
- { path: '', component: AboutComponent, data: { title: extract('About') } }
-];
+const routes: Routes = [{ path: '', component: AboutComponent, data: { title: extract('About') } }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
