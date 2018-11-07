@@ -8,29 +8,22 @@ import { DataService } from '@app/jokes/services';
 
 @Injectable()
 export class JokeStoreEffects {
-  constructor(private dataService: DataService, private actions$: Actions) { }
+  constructor(private dataService: DataService, private actions$: Actions) {}
 
-  // tslint:disable-next-line:member-ordering
   @Effect()
   loadRequestEffect$: Observable<Action> = this.actions$.pipe(
-    ofType<featureActions.LoadRequestAction>(
-      featureActions.ActionTypes.LOAD_REQUEST
-    ),
+    ofType<featureActions.LoadRequestAction>(featureActions.ActionTypes.LOAD_REQUEST),
     startWith(new featureActions.LoadRequestAction()),
     switchMap(action =>
-      this.dataService
-        .getJokes()
-        .pipe(
-          map(
-            items =>
-              new featureActions.LoadSuccessAction({
-                items
-              })
-          ),
-          catchError(error =>
-            observableOf(new featureActions.LoadFailureAction({ error }))
-          )
-        )
+      this.dataService.getJokes().pipe(
+        map(
+          items =>
+            new featureActions.LoadSuccessAction({
+              items
+            })
+        ),
+        catchError(error => observableOf(new featureActions.LoadFailureAction({ error })))
+      )
     )
   );
 }

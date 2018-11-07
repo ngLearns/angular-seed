@@ -1,8 +1,7 @@
 import { Actions, ActionTypes } from './actions';
 import { featureAdapter, initialState, State } from './state';
 
-// tslint:disable-next-line:typedef
-export function featureReducer(state = initialState, action: Actions): State {
+export function featureReducer(state: State = initialState, action: Actions): State {
   switch (action.type) {
     case ActionTypes.LOAD_REQUEST: {
       return {
