@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "ngX-Rocket",
+  "APP_NAME": "ngX-Learns",
   "About": "A propos",
   "Hello world !": "Bonjour le monde !",
   "Home": "Accueil",
@@ -12,5 +12,10 @@
   "Username is required": "Identifiant requis",
   "Username or password incorrect.": "Identifiant ou mot de passe incorrect.",
   "Remember me": "Rester connecté",
-  "Version": "Version"
+  "Version": "Version",
+  "my-feature-lang": {
+    "my-component": {
+      "my-translate": "My translate"
+    }
+  }
 }

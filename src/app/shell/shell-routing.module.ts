@@ -10,6 +10,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'home', pathMatch: 'prefix' },
             { path: 'home', loadChildren: '../home/home.module#HomeModule' },
             { path: 'about', loadChildren: '../about/about.module#AboutModule' },
+            { path: 'joke', loadChildren: '../jokes/jokes.module#JokesModule' }
         ]
     }
 ];

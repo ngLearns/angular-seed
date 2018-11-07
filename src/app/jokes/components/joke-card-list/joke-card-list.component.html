@@ -1,0 +1,20 @@
+<h1>Chuck Norris Jokes</h1>
+
+<app-loader [isLoading]="loading" [message]="'loading'"></app-loader>
+
+<div *ngIf="!loading">
+
+  <label class="btn-primary" ngbButtonLabel>
+	<button ngbButton (click)="this.refresh.emit()">refresh</button>
+  </label>
+
+  <div *ngIf="jokes">
+    <app-joke-card-item *ngFor="let joke of jokes" [joke]="joke"></app-joke-card-item>
+  </div>
+
+  <div *ngIf="!jokes">No jokes found</div>
+</div>
+
+<div *ngIf="error">
+  An error occurred: {{error.message}}
+</div>

@@ -11,6 +11,7 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RootStoreModule } from './root-store';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     NgbModule,
     CoreModule,
     SharedModule,
-    AppRoutingModule // must be imported as the last module as it contains the fallback route
+    AppRoutingModule, // must be imported as the last module as it contains the fallback route,
+    RootStoreModule
   ],
   declarations: [AppComponent],
   providers: [],
