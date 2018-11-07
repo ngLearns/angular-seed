@@ -22,6 +22,5 @@ import { SharedModule } from '@app/shared';
     SharedModule,
     JokesRoutingModule
   ],
-  providers: [DataService]
 })
 export class JokesModule { }
