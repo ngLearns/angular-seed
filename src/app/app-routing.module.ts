@@ -6,8 +6,7 @@ const routes: Routes = [
   // Fallback when no prior route is matched
   { path: '', loadChildren: './shell/shell.module#ShellModule', canActivate: [AuthenticationGuard] },
   { path: 'login', loadChildren: './login/login.module#LoginModule' },
-  { path: '**', redirectTo: '' },
-
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
