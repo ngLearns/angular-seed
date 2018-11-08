@@ -1,6 +1,4 @@
-<app-joke-card-list 
-    [jokes]="jokes$ | async" 
-    [loading]="isLoading$ | async" 
-    [error]="(error$ | async)" 
-    (refresh)="onRefresh()">
-</app-joke-card-list>
+<div class="container-fluid">
+  <app-joke-card-list [jokes]="jokes$ | async" [loading]="isLoading$ | async" [error]="(error$ | async)" (refresh)="onRefresh()">
+  </app-joke-card-list>
+</div>

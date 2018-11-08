@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Joke, JokeResult } from '../models';
 
 const routes = {
-  joke: () => `/jokes/random/5?escape=javascript`
+  joke: () => `assets/api/joke.json`
 };
 
 @Injectable()
@@ -17,7 +17,7 @@ export class DataService {
     .cache()
     .get(routes.joke())
     .pipe(
-      map((body: any) => { console.log(body.value); return body.value; }),
+      map((body: any) => { console.log(body); return body; }),
       catchError(() => of('Error, could not load joke :-('))
     );
   }
