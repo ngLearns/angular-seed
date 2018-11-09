@@ -3,18 +3,21 @@
 <app-loader [isLoading]="loading" [message]="'loading'"></app-loader>
 
 <div *ngIf="!loading">
-
   <label class="btn-primary" ngbButtonLabel>
-	  <span ngbButton (click)="this.refresh.emit()">refresh</span>
+    <span ngbButton (click)="this.refresh.emit()">refresh</span>
   </label>
 
-  <div *ngIf="jokes">
-    <app-joke-card-item *ngFor="let joke of jokes" [joke]="joke"></app-joke-card-item>
+  <div *ngIf="jokes" class="row">
+    <div class="col-md-3 col-sm-12" *ngFor="let joke of jokes">
+      <app-joke-card-item [joke]="joke"></app-joke-card-item>
+    </div>
   </div>
 
   <div *ngIf="!jokes">No jokes found</div>
 </div>
 
-<div *ngIf="error">
-  An error occurred: {{error.message}}
+<div class="row" *ngIf="error">
+  <div class="col">
+    <span>An error occurred: {{error.message}}</span>
+  </div>
 </div>

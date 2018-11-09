@@ -3,6 +3,8 @@ import { finalize } from 'rxjs/operators';
 
 import { QuoteService } from './quote.service';
 
+import { Network } from '@ngx-pwa/offline';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,8 +13,8 @@ import { QuoteService } from './quote.service';
 export class HomeComponent implements OnInit {
   quote: string;
   isLoading: boolean;
-
-  constructor(private quoteService: QuoteService) {}
+  online$ = this.network.onlineChanges;
+  constructor(private quoteService: QuoteService, protected network: Network) {}
 
   ngOnInit() {
     this.isLoading = true;

@@ -12,7 +12,7 @@ import { HttpCacheService } from './http/http-cache.service';
 import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
 import { CacheInterceptor } from './http/cache.interceptor';
-
+import { offlineProviders } from '@ngx-pwa/offline';
 @NgModule({
   imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule],
   providers: [
@@ -30,7 +30,8 @@ import { CacheInterceptor } from './http/cache.interceptor';
     {
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy
-    }
+    },
+    offlineProviders({ guardsRedirect: true })
   ]
 })
 export class CoreModule {
