@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     loadChildren: './shell/shell.module#ShellModule', canLoad: [OnlineGuard], canActivate: [AuthenticationGuard]
   },
-  { path: 'login', loadChildren: './login/login.module#LoginModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginModule', canLoad: [OnlineGuard] },
   { path: '**', redirectTo: '' }
 ];
 

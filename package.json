@@ -36,6 +36,7 @@
     "@ngrx/effects": "^6.1.2",
     "@ngrx/entity": "^6.1.2",
     "@ngrx/store": "^6.1.2",
+    "@ngx-pwa/local-storage": "^6.2.0",
     "@ngx-pwa/offline": "^6.1.0",
     "@ngx-translate/core": "^10.0.1",
     "bootstrap": "^4.1.1",

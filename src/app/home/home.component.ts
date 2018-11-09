@@ -1,3 +1,4 @@
+import { JSONSchema } from '@ngx-pwa/local-storage';
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
@@ -14,7 +15,14 @@ export class HomeComponent implements OnInit {
   quote: string;
   isLoading: boolean;
   online$ = this.network.onlineChanges;
-  constructor(private quoteService: QuoteService, protected network: Network) {}
+
+  user: JSONSchema = { firstName: 'Henri', lastName: 'Bergson' };
+
+  getUser$ = this.quoteService.getUsers();
+
+  constructor(
+    private quoteService: QuoteService,
+    protected network: Network) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -28,5 +36,7 @@ export class HomeComponent implements OnInit {
       .subscribe((quote: string) => {
         this.quote = quote;
       });
+    this.quoteService.addUser(this.user);
   }
+
 }

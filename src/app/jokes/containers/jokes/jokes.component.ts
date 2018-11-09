@@ -37,7 +37,8 @@ export class JokesComponent implements OnInit {
     );
   }
 
-  onRefresh() {
+  onRefresh(event: any) {
+    console.log(event);
     this.store$.dispatch(
       new JokeStoreActions.LoadRequestAction()
     );

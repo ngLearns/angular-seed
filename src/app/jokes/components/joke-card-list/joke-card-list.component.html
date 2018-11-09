@@ -3,6 +3,7 @@
 <app-loader [isLoading]="loading" [message]="'loading'"></app-loader>
 
 <div *ngIf="!loading">
+
   <label class="btn-primary" ngbButtonLabel>
     <span ngbButton (click)="this.refresh.emit()">refresh</span>
   </label>
@@ -16,8 +17,8 @@
   <div *ngIf="!jokes">No jokes found</div>
 </div>
 
-<div class="row" *ngIf="error">
-  <div class="col">
-    <span>An error occurred: {{error.message}}</span>
-  </div>
-</div>
+<p>
+  <ngb-alert *ngIf="true" type="danger">
+      An error occurred: {{error.message}}
+  </ngb-alert>
+</p>
