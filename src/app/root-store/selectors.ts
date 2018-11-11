@@ -1,7 +1,5 @@
 import { createSelector, MemoizedSelector } from '@ngrx/store';
-import {
-  JokeStoreSelectors
-} from './joke-store';
+import { JokeStoreSelectors } from './joke-store';
 
 export const selectError: MemoizedSelector<object, string> = createSelector(
   JokeStoreSelectors.selectJokeError,
@@ -10,10 +8,7 @@ export const selectError: MemoizedSelector<object, string> = createSelector(
   }
 );
 
-export const selectIsLoading: MemoizedSelector<
-  object,
-  boolean
-> = createSelector(
+export const selectIsLoading: MemoizedSelector<object, boolean> = createSelector(
   JokeStoreSelectors.selectJokeIsLoading,
   (joke: boolean) => {
     return joke;

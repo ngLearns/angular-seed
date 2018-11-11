@@ -3,17 +3,17 @@ import { ShellComponent } from './shell.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: ShellComponent,
-        children: [
-            { path: '', redirectTo: 'home', pathMatch: 'prefix' },
-            { path: 'home', loadChildren: '../home/home.module#HomeModule' },
-            { path: 'about', loadChildren: '../about/about.module#AboutModule' },
-            { path: 'joke', loadChildren: '../jokes/jokes.module#JokesModule' },
-            { path: 'formbuiler', loadChildren: '../formbuiler/formbuiler.module#FormbuilerModule' }
-        ]
-    }
+  {
+    path: '',
+    component: ShellComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'prefix' },
+      { path: 'home', loadChildren: '../home/home.module#HomeModule' },
+      { path: 'about', loadChildren: '../about/about.module#AboutModule' },
+      { path: 'joke', loadChildren: '../jokes/jokes.module#JokesModule' },
+      { path: 'formbuiler', loadChildren: '../formbuiler/formbuiler.module#FormbuilerModule' }
+    ]
+  }
 ];
 
 @NgModule({

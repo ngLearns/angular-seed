@@ -15,12 +15,7 @@ import { CacheInterceptor } from './http/cache.interceptor';
 import { offlineProviders } from '@ngx-pwa/offline';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    TranslateModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule],
   providers: [
     AuthenticationService,
     AuthenticationGuard,

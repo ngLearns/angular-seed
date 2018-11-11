@@ -1,9 +1,4 @@
-import {
-  createFeatureSelector,
-  createSelector,
-  MemoizedSelector
-} from '@ngrx/store';
-
+import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
 
 import { featureAdapter, State } from './state';
 import { Joke } from '@app/jokes/models';
@@ -12,14 +7,9 @@ export const getError = (state: State): any => state.error;
 
 export const getIsLoading = (state: State): boolean => state.isLoading;
 
-export const selectJokeState: MemoizedSelector<
-  object,
-  State
-  > = createFeatureSelector<State>('joke');
+export const selectJokeState: MemoizedSelector<object, State> = createFeatureSelector<State>('joke');
 
-export const selectAllJokeItems: (
-  state: object
-) => Joke[] = featureAdapter.getSelectors(selectJokeState).selectAll;
+export const selectAllJokeItems: (state: object) => Joke[] = featureAdapter.getSelectors(selectJokeState).selectAll;
 
 export const selectJokeById = (id: string) =>
   createSelector(this.selectAllJokeItems, (allJokes: Joke[]) => {
@@ -30,12 +20,6 @@ export const selectJokeById = (id: string) =>
     }
   });
 
-export const selectJokeError: MemoizedSelector<object, any> = createSelector(
-  selectJokeState,
-  getError
-);
+export const selectJokeError: MemoizedSelector<object, any> = createSelector(selectJokeState, getError);
 
-export const selectJokeIsLoading: MemoizedSelector<
-  object,
-  boolean
-  > = createSelector(selectJokeState, getIsLoading);
+export const selectJokeIsLoading: MemoizedSelector<object, boolean> = createSelector(selectJokeState, getIsLoading);

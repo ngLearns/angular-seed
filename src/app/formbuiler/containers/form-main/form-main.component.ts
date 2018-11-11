@@ -9,8 +9,7 @@ import { QuestionService } from '@app/formbuiler/services/question.service';
 export class FormMainComponent implements OnInit {
   questionOptions: any[];
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   constructor(protected service: QuestionService) {
     this.questionOptions = this.service.createFormQuestion();

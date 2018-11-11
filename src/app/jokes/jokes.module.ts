@@ -11,16 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '@app/shared';
 
 @NgModule({
-  declarations: [
-    JokesComponent,
-    JokeCardListComponent,
-    JokeCardItemComponent
-  ],
-  imports: [
-    CommonModule,
-    NgbModule,
-    SharedModule,
-    JokesRoutingModule
-  ],
+  declarations: [JokesComponent, JokeCardListComponent, JokeCardItemComponent],
+  imports: [CommonModule, NgbModule, SharedModule, JokesRoutingModule]
 })
-export class JokesModule { }
+export class JokesModule {}

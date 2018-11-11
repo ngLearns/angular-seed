@@ -7,11 +7,7 @@ import { featureReducer } from './reducer';
 import { DataService } from '@app/jokes/services';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    StoreModule.forFeature('joke', featureReducer),
-    EffectsModule.forFeature([JokeStoreEffects])
-  ],
+  imports: [CommonModule, StoreModule.forFeature('joke', featureReducer), EffectsModule.forFeature([JokeStoreEffects])],
   providers: [DataService, JokeStoreEffects]
 })
 export class JokeStoreModule {}

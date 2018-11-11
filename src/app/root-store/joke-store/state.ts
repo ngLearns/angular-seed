@@ -1,12 +1,9 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Joke } from '@app/jokes/models';
 
-export const featureAdapter: EntityAdapter<
-  Joke
-> = createEntityAdapter<Joke>({
+export const featureAdapter: EntityAdapter<Joke> = createEntityAdapter<Joke>({
   selectId: model => model.id,
-  sortComparer: (a: Joke, b: Joke): number =>
-    b.id.toString().localeCompare(a.id)
+  sortComparer: (a: Joke, b: Joke): number => b.id.toString().localeCompare(a.id)
 });
 
 export interface State extends EntityState<Joke> {
@@ -14,9 +11,7 @@ export interface State extends EntityState<Joke> {
   error?: any;
 }
 
-export const initialState: State = featureAdapter.getInitialState(
-  {
-    isLoading: false,
-    error: null
-  }
-);
+export const initialState: State = featureAdapter.getInitialState({
+  isLoading: false,
+  error: null
+});

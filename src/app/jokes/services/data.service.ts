@@ -11,15 +11,18 @@ const routes = {
 @Injectable()
 export class DataService {
   private delay = 2000;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
   getJokes(): Observable<Joke[]> {
     return this.httpClient
-    .cache()
-    .get(routes.joke())
-    .pipe(
-      delay(this.delay),
-      map((body: any) => { console.log(body); return body; }),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+      .cache()
+      .get(routes.joke())
+      .pipe(
+        delay(this.delay),
+        map((body: any) => {
+          console.log(body);
+          return body;
+        }),
+        catchError(() => of('Error, could not load joke :-('))
+      );
   }
 }

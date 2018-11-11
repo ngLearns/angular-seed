@@ -8,11 +8,10 @@ import { Joke } from '../../models';
   styleUrls: ['./joke-card-item.component.css']
 })
 export class JokeCardItemComponent implements OnInit {
-  @Input() joke: Joke;
+  @Input()
+  joke: Joke;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

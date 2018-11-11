@@ -8,14 +8,13 @@ import { FormBuilerService } from '@app/formbuiler/services/form-builer.service'
   templateUrl: './dynamic-form.component.html',
   providers: [FormBuilerService]
 })
-
 export class DynamicFormComponent implements OnInit {
   @Input()
   options: ControlBase<any>[] = [];
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: FormBuilerService) { }
+  constructor(private qcs: FormBuilerService) {}
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.options);

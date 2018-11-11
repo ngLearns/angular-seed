@@ -8,16 +8,17 @@ import { Joke } from '../../models';
   styleUrls: ['./joke-card-list.component.css']
 })
 export class JokeCardListComponent implements OnInit {
+  @Input()
+  jokes: Joke[];
+  @Input()
+  loading: boolean;
+  @Input()
+  error: any;
 
-  @Input() jokes: Joke[];
-  @Input() loading: boolean;
-  @Input() error: any;
+  @Output()
+  refresh = new EventEmitter();
 
-  @Output() refresh = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

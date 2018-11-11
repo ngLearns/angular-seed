@@ -7,7 +7,9 @@ const routes: Routes = [
   // Fallback when no prior route is matched
   {
     path: '',
-    loadChildren: './shell/shell.module#ShellModule', canLoad: [OnlineGuard], canActivate: [AuthenticationGuard]
+    loadChildren: './shell/shell.module#ShellModule',
+    canLoad: [OnlineGuard],
+    canActivate: [AuthenticationGuard]
   },
   { path: 'login', loadChildren: './login/login.module#LoginModule', canLoad: [OnlineGuard] },
   { path: '**', redirectTo: '' }
@@ -18,4 +20,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

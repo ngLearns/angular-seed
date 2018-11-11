@@ -15,9 +15,7 @@ export interface RandomQuoteContext {
 
 @Injectable()
 export class QuoteService {
-  constructor(
-    private httpClient: HttpClient,
-    protected localStorage: IndexedDBDatabase) { }
+  constructor(private httpClient: HttpClient, protected localStorage: IndexedDBDatabase) {}
 
   getRandomQuote(context: RandomQuoteContext): Observable<string> {
     return this.httpClient
@@ -31,9 +29,9 @@ export class QuoteService {
 
   addUser = (user: JSONSchema) => {
     this.localStorage.setItem('user', user);
-  }
+  };
 
   getUsers = () => {
     return this.localStorage.getItem<JSONSchema>('user');
-  }
+  };
 }

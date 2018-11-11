@@ -20,9 +20,7 @@ export class HomeComponent implements OnInit {
 
   getUser$ = this.quoteService.getUsers();
 
-  constructor(
-    private quoteService: QuoteService,
-    protected network: Network) { }
+  constructor(private quoteService: QuoteService, protected network: Network) {}
 
   ngOnInit() {
     this.isLoading = true;
@@ -38,5 +36,4 @@ export class HomeComponent implements OnInit {
       });
     this.quoteService.addUser(this.user);
   }
-
 }

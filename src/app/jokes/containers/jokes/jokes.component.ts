@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { Joke } from '../../models';
 import { RootStoreState, JokeStoreSelectors, JokeStoreActions } from '@app/root-store';
 
-
 @Component({
   selector: 'app-jokes',
   templateUrl: './jokes.component.html',
@@ -17,31 +16,20 @@ export class JokesComponent implements OnInit {
   error$: Observable<any>;
   isLoading$: Observable<boolean>;
 
-  constructor(private store$: Store<RootStoreState.State>) { }
+  constructor(private store$: Store<RootStoreState.State>) {}
 
   ngOnInit() {
-    this.jokes$ = this.store$.select(
-      JokeStoreSelectors.selectAllJokeItems
-    );
+    this.jokes$ = this.store$.select(JokeStoreSelectors.selectAllJokeItems);
 
-    this.error$ = this.store$.select(
-      JokeStoreSelectors.selectJokeError
-    );
+    this.error$ = this.store$.select(JokeStoreSelectors.selectJokeError);
 
-    this.isLoading$ = this.store$.select(
-      JokeStoreSelectors.selectJokeIsLoading
-    );
+    this.isLoading$ = this.store$.select(JokeStoreSelectors.selectJokeIsLoading);
 
-    this.store$.dispatch(
-      new JokeStoreActions.LoadRequestAction()
-    );
+    this.store$.dispatch(new JokeStoreActions.LoadRequestAction());
   }
 
   onRefresh(event: any) {
     console.log(event);
-    this.store$.dispatch(
-      new JokeStoreActions.LoadRequestAction()
-    );
+    this.store$.dispatch(new JokeStoreActions.LoadRequestAction());
   }
-
 }

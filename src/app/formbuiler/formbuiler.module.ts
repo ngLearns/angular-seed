@@ -13,13 +13,7 @@ import { QuestionService } from './services/question.service';
 
 @NgModule({
   declarations: [FormMainComponent, DynamicFormComponent, DynamicFormQuestionComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    NgbModule,
-    SharedModule,
-    FormbuilerRoutingModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule, NgbModule, SharedModule, FormbuilerRoutingModule],
   providers: [QuestionService]
 })
-export class FormbuilerModule { }
+export class FormbuilerModule {}
