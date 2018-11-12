@@ -18,7 +18,7 @@
 </div>
 
 <p>
-  <ngb-alert *ngIf="true" type="danger">
-      An error occurred: {{error.message}}
+  <ngb-alert *ngIf="error" type="danger">
+      An error occurred: {{error['message']}}
   </ngb-alert>
 </p>
