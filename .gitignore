@@ -54,3 +54,5 @@ testem.log
 Thumbs.db
 package-lock.json
 npm-shrinkwrap.json
+node_modules
+libs

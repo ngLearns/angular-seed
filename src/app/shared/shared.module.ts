@@ -7,6 +7,6 @@ import { DefaultImageDirective } from './directives/default-image.directive';
 @NgModule({
   imports: [CommonModule],
   declarations: [LoaderComponent, DefaultImageDirective],
-  exports: [LoaderComponent, DefaultImageDirective],
+  exports: [LoaderComponent, DefaultImageDirective]
 })
-export class SharedModule { }
+export class SharedModule {}

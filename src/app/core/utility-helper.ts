@@ -17,13 +17,13 @@ type Predicate = (oldValues: Array<any>, newValues: Array<any>) => boolean;
  * @param label label
  */
 export function type<T>(label: T | ''): T {
-    if (typeCache[<string>label]) {
-        throw new Error(`Action type "${label}" is not unqiue"`);
-    }
+  if (typeCache[<string>label]) {
+    throw new Error(`Action type "${label}" is not unqiue"`);
+  }
 
-    typeCache[<string>label] = true;
+  typeCache[<string>label] = true;
 
-    return <T>label;
+  return <T>label;
 }
 
 /**
@@ -35,10 +35,10 @@ export function type<T>(label: T | ''): T {
  * @param conditions conditions
  */
 export function distinctChanges(oldValues: Array<any>, newValues: Array<any>, conditions: Predicate[]): boolean {
-    if (conditions.every(cond => cond(oldValues, newValues))) {
-        return false;
-    }
-    return true;
+  if (conditions.every(cond => cond(oldValues, newValues))) {
+    return false;
+  }
+  return true;
 }
 
 /**
@@ -47,11 +47,11 @@ export function distinctChanges(oldValues: Array<any>, newValues: Array<any>, co
  * @param val value
  */
 export function isObject(val: any) {
-    if (val === null) {
-        return false;
-    }
+  if (val === null) {
+    return false;
+  }
 
-    return typeof val === 'function' || typeof val === 'object';
+  return typeof val === 'function' || typeof val === 'object';
 }
 
 /**
@@ -60,10 +60,10 @@ export function isObject(val: any) {
  * @param s string
  */
 export function capitalize(s: string) {
-    if (!s || typeof s !== 'string') {
-        return s;
-    }
-    return s && s[0].toUpperCase() + s.slice(1);
+  if (!s || typeof s !== 'string') {
+    return s;
+  }
+  return s && s[0].toUpperCase() + s.slice(1);
 }
 
 /**
@@ -72,10 +72,10 @@ export function capitalize(s: string) {
  * @param s string
  */
 export function uncapitalize(s: string) {
-    if (!s || typeof s !== 'string') {
-        return s;
-    }
-    return s && s[0].toLowerCase() + s.slice(1);
+  if (!s || typeof s !== 'string') {
+    return s;
+  }
+  return s && s[0].toLowerCase() + s.slice(1);
 }
 
 /**
@@ -85,30 +85,30 @@ export function uncapitalize(s: string) {
  * @param preservePath preservePath
  */
 export function flattenObject(ob: any, preservePath: boolean = false): any {
-    const toReturn = {};
+  const toReturn = {};
 
-    for (const i in ob) {
-        if (!ob.hasOwnProperty(i)) {
-            continue;
-        }
-
-        if (typeof ob[i] === 'object') {
-            const flatObject = flattenObject(ob[i], preservePath);
-            for (const x in flatObject) {
-                if (!flatObject.hasOwnProperty(x)) {
-                    continue;
-                }
-
-                const path = preservePath ? i + '.' + x : x;
-
-                toReturn[path] = flatObject[x];
-            }
-        } else {
-            toReturn[i] = ob[i];
-        }
+  for (const i in ob) {
+    if (!ob.hasOwnProperty(i)) {
+      continue;
     }
 
-    return toReturn;
+    if (typeof ob[i] === 'object') {
+      const flatObject = flattenObject(ob[i], preservePath);
+      for (const x in flatObject) {
+        if (!flatObject.hasOwnProperty(x)) {
+          continue;
+        }
+
+        const path = preservePath ? i + '.' + x : x;
+
+        toReturn[path] = flatObject[x];
+      }
+    } else {
+      toReturn[i] = ob[i];
+    }
+  }
+
+  return toReturn;
 }
 
 /**
@@ -118,8 +118,8 @@ export function flattenObject(ob: any, preservePath: boolean = false): any {
  * @param culture culture
  */
 export function localeDateString(dateString: string, culture: string = 'en-EN'): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(culture);
+  const date = new Date(dateString);
+  return date.toLocaleDateString(culture);
 }
 
 /**
@@ -129,12 +129,12 @@ export function localeDateString(dateString: string, culture: string = 'en-EN'):
  * @param prop prop
  */
 export function mergeArrayObject(array: any[], item: any, prop: string) {
-    const reduced = array.find(a => a[prop] === item[prop]);
-    if (reduced) {
-        return array;
-    } else {
-        return array.concat([item]);
-    }
+  const reduced = array.find(a => a[prop] === item[prop]);
+  if (reduced) {
+    return array;
+  } else {
+    return array.concat([item]);
+  }
 }
 
 /**
@@ -145,19 +145,19 @@ export function mergeArrayObject(array: any[], item: any, prop: string) {
  * @param prop o
  */
 export function spliceObjectArray(array: any[], item: any, prop: string) {
-    // get index of object with id
+  // get index of object with id
 
-    // const removeIndex = array.map(function (e) { return item[prop]; }).indexOf(item[prop]);
-    // if (removeIndex !== -1) { array.splice(removeIndex, 1); }
-    // return array;
+  // const removeIndex = array.map(function (e) { return item[prop]; }).indexOf(item[prop]);
+  // if (removeIndex !== -1) { array.splice(removeIndex, 1); }
+  // return array;
 
-    // fix delete item in array
-    const index = array.indexOf(item);
-    console.log(index);
-    if (index > -1) {
-        array.splice(index, 1);
-    }
-    return array;
+  // fix delete item in array
+  const index = array.indexOf(item);
+  console.log(index);
+  if (index > -1) {
+    array.splice(index, 1);
+  }
+  return array;
 }
 
 /**
@@ -166,35 +166,35 @@ export function spliceObjectArray(array: any[], item: any, prop: string) {
  * @param b is object the 2
  */
 export function sortArrayObject(a: any, b: any) {
-    return function compare(T1: any, T2: any) {
-        if (T1.id < T2.id) {
-            return -1;
-        }
-        if (T1.id > T2.id) {
-            return 1;
-        }
-        return 0;
-    };
+  return function compare(T1: any, T2: any) {
+    if (T1.id < T2.id) {
+      return -1;
+    }
+    if (T1.id > T2.id) {
+      return 1;
+    }
+    return 0;
+  };
 }
 
 export namespace browserFunction {
-    /**
-     *
-     * @param event event
-     */
-    export function getToggleSelector(event: any): any {
-        let elToggleNav: ElementRef;
-        const path = event.path;
-        if (path !== undefined) {
-            // for chorme
-            const elheader = path.find((item: any) => item.className === 'header-container');
-            elToggleNav = elheader.children.item(2);
-        } else {
-            // fix for firefox
-            elToggleNav = event.target.offsetParent.children.item(0).children.item(2);
-        }
-        return elToggleNav;
+  /**
+   *
+   * @param event event
+   */
+  export function getToggleSelector(event: any): any {
+    let elToggleNav: ElementRef;
+    const path = event.path;
+    if (path !== undefined) {
+      // for chorme
+      const elheader = path.find((item: any) => item.className === 'header-container');
+      elToggleNav = elheader.children.item(2);
+    } else {
+      // fix for firefox
+      elToggleNav = event.target.offsetParent.children.item(0).children.item(2);
     }
+    return elToggleNav;
+  }
 }
 
 /**
@@ -202,45 +202,45 @@ export namespace browserFunction {
  * @param jsonString string JSON parse
  */
 export function tryParseJSON(jsonString: any) {
-    // tslint:disable-next-line:curly
-    if (!jsonString) return false;
-    try {
-        const ob = JSON.parse(jsonString);
-        if (ob && typeof ob === 'object') {
-            return ob;
-        }
-    } catch (e) { }
-    return false;
+  // tslint:disable-next-line:curly
+  if (!jsonString) return false;
+  try {
+    const ob = JSON.parse(jsonString);
+    if (ob && typeof ob === 'object') {
+      return ob;
+    }
+  } catch (e) {}
+  return false;
 }
 
 export function tryParseJwt(token?: any) {
-    if (!token) {
-        return null;
-    }
-    try {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace('-', '+').replace('_', '/');
-        return JSON.parse(window.atob(base64));
-    } catch (e) { }
+  if (!token) {
     return null;
+  }
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+  } catch (e) {}
+  return null;
 }
 
 export function tryMapPathApi(prefixAPI?: any, urlPath?: string): string {
-    if (!prefixAPI) {
-        return '';
-    }
-    try {
-        const url = urlPath || '';
-        let result = `${url}?`;
-        for (const property in prefixAPI) {
-            if (prefixAPI.hasOwnProperty(property)) {
-                result += `${property}=${prefixAPI[property]}&`;
-            }
-        }
-        result = result.replace(/[?&]$/, '');
-        return result;
-    } catch (e) { }
+  if (!prefixAPI) {
     return '';
+  }
+  try {
+    const url = urlPath || '';
+    let result = `${url}?`;
+    for (const property in prefixAPI) {
+      if (prefixAPI.hasOwnProperty(property)) {
+        result += `${property}=${prefixAPI[property]}&`;
+      }
+    }
+    result = result.replace(/[?&]$/, '');
+    return result;
+  } catch (e) {}
+  return '';
 }
 
 /**
@@ -253,20 +253,20 @@ export function tryMapPathApi(prefixAPI?: any, urlPath?: string): string {
  * @returns void
  */
 export function moveItemToTopArr(arr: any, item: any): void {
-    // find the current index of item:
-    const index = arr
-        .map(function (x: any) {
-            return x.id;
-        })
-        .indexOf(item.id);
-    if (index > -1) {
-        // the identified index, and affecting 1 element(s):
-        arr.splice(index, 1);
-        // pushing the item string back in the array:
-        // arr.unshift(item);
-        arr.push(item);
-    }
-    return arr;
+  // find the current index of item:
+  const index = arr
+    .map(function(x: any) {
+      return x.id;
+    })
+    .indexOf(item.id);
+  if (index > -1) {
+    // the identified index, and affecting 1 element(s):
+    arr.splice(index, 1);
+    // pushing the item string back in the array:
+    // arr.unshift(item);
+    arr.push(item);
+  }
+  return arr;
 }
 
 /**
@@ -278,11 +278,11 @@ export function moveItemToTopArr(arr: any, item: any): void {
  * @returns [error: string]: any
  */
 export function validateEmail(formControl: FormControl): { [error: string]: any } {
-    const REGEXP1 = '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)';
-    const REGEXP2 = '(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])';
-    const REGEXP3 = '(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    const EMAIL_REGEXP = new RegExp(`${REGEXP1}|${REGEXP2}|${REGEXP3}`);
-    return EMAIL_REGEXP.test(formControl.value) ? null : { validateEmail: { valid: false } };
+  const REGEXP1 = '^(([^<>()[]\\.,;:s@"]+(.[^<>()[]\\.,;:s@"]+)*)';
+  const REGEXP2 = '(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])';
+  const REGEXP3 = '(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$';
+  const EMAIL_REGEXP = new RegExp(`${REGEXP1}|${REGEXP2}|${REGEXP3}`);
+  return EMAIL_REGEXP.test(formControl.value) ? null : { validateEmail: { valid: false } };
 }
 
 /**
@@ -294,9 +294,8 @@ export function validateEmail(formControl: FormControl): { [error: string]: any 
  * @returns [error: string: any }}
  */
 export function numericRequired(formControl: FormControl): { [error: string]: any } {
-    return (formControl.value && formControl.value > 0) ? null : { numericRequired: { valid: false } };
+  return formControl.value && formControl.value > 0 ? null : { numericRequired: { valid: false } };
 }
-
 
 /**
  *
@@ -308,13 +307,12 @@ export function numericRequired(formControl: FormControl): { [error: string]: an
  * @returns [error: string]: any
  */
 export function matchingPasswords(controlKey: string, matchingControlKey: string): { [error: string]: any } {
-    return (group: FormGroup): { [key: string]: any } => {
-        if (group.controls[controlKey].value !== group.controls[matchingControlKey].value) {
-            return { mismatch: { valid: false } };
-        }
-    };
+  return (group: FormGroup): { [key: string]: any } => {
+    if (group.controls[controlKey].value !== group.controls[matchingControlKey].value) {
+      return { mismatch: { valid: false } };
+    }
+  };
 }
-
 
 const stringConstructor = 'test'.constructor;
 const arrayConstructor = [].constructor;
@@ -328,19 +326,19 @@ const objectConstructor = {}.constructor;
  * @returns string
  */
 export function getTypeObject(obj: Object = {}) {
-    if (obj === null || obj === {}) {
-        return 'null';
-    } else if (obj === undefined) {
-        return 'undefined';
-    } else if (obj.constructor === stringConstructor) {
-        return 'String';
-    } else if (obj.constructor === arrayConstructor) {
-        return 'Array';
-    } else if (obj.constructor === objectConstructor) {
-        return 'Object';
-    } else {
-        return 'don\'t know';
-    }
+  if (obj === null || obj === {}) {
+    return 'null';
+  } else if (obj === undefined) {
+    return 'undefined';
+  } else if (obj.constructor === stringConstructor) {
+    return 'String';
+  } else if (obj.constructor === arrayConstructor) {
+    return 'Array';
+  } else if (obj.constructor === objectConstructor) {
+    return 'Object';
+  } else {
+    return 'don\'t know';
+  }
 }
 
 /**
@@ -351,7 +349,6 @@ export function getTypeObject(obj: Object = {}) {
  * @returns true/false
  */
 export function isJson(obj: any) {
-    const t = typeof obj;
-    return ['boolean', 'number', 'string', 'symbol', 'function'].indexOf(t) === -1;
+  const t = typeof obj;
+  return ['boolean', 'number', 'string', 'symbol', 'function'].indexOf(t) === -1;
 }
-

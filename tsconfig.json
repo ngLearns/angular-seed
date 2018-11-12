@@ -19,8 +19,18 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@app/*": ["app/*"],
-      "@env/*": ["environments/*"]
+      "@app/*": [
+        "app/*"
+      ],
+      "@env/*": [
+        "environments/*"
+      ],
+      "ngx-hotkeys": [
+        "dist/ngx-hotkeys"
+      ],
+      "ngx-hotkeys/*": [
+        "dist/ngx-hotkeys/*"
+      ]
     }
   }
 }

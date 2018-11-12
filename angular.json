@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "ngx-hotkeys": {
+      "root": "projects/ngx-hotkeys",
+      "sourceRoot": "projects/ngx-hotkeys/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-hotkeys/tsconfig.lib.json",
+            "project": "projects/ngx-hotkeys/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-hotkeys/src/test.ts",
+            "tsConfig": "projects/ngx-hotkeys/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-hotkeys/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-hotkeys/tsconfig.lib.json",
+              "projects/ngx-hotkeys/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-x-rocket"
