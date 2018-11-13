@@ -26,11 +26,12 @@
         "environments/*"
       ],
       "ngx-hotkeys": [
-        "dist/ngx-hotkeys"
-      ],
-      "ngx-hotkeys/*": [
-        "dist/ngx-hotkeys/*"
+        "distPack/ngx-hotkeys"
       ]
     }
-  }
+  },
+  "exclude": [
+    "dist",
+    "distPack"
+  ]
 }

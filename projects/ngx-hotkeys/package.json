@@ -1,9 +1,11 @@
 {
   "name": "ngx-hotkeys",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
+    "@angular/common": "^7.0.0 || ^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^7.0.0 || ^6.0.0-rc.0 || ^6.0.0"
+  },
+  "devDependencies": {
     "mousetrap": "^1.6.2",
     "@types/mousetrap": "^1.6.0"
   }

@@ -4,8 +4,7 @@ import 'mousetrap';
 import { NgxHotkeysService } from './ngx-hotkeys.service';
 
 @Directive({
-    // tslint:disable-next-line:directive-selector
-    selector: '[ngxhotkeys]',
+    selector: '[ngxHotkeys]',
     providers: [NgxHotkeysService]
 })
 export class NgxHotkeysDirective implements OnInit, OnDestroy {

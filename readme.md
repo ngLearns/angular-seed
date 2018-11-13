@@ -107,3 +107,17 @@ App
  ├──── hooks (scripts nodejs)
  └──── tslint.json
 ```
+
+### How use projects/my-lib 
+
+#### # Install some awesome dependency to my-lib
+```
+    npm i some-awesome-dependency --project=my-awesome-library --peer=true --dev=false
+```
+
+#### Architecture store/*
+
+store_routing
+store_reduxs
+store_hotkeys
+store_themes
