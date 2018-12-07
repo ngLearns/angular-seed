@@ -9,9 +9,11 @@ import { JokeCardListComponent } from './components/joke-card-list/joke-card-lis
 import { JokesComponent } from './containers/jokes/jokes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '@app/shared';
+import { JokeStateModule } from '@app/root-state/joke-state';
 
 @NgModule({
   declarations: [JokesComponent, JokeCardListComponent, JokeCardItemComponent],
-  imports: [CommonModule, NgbModule, SharedModule, JokesRoutingModule]
+  imports: [CommonModule, NgbModule, SharedModule, JokesRoutingModule, JokeStateModule],
+  providers: [DataService]
 })
 export class JokesModule {}

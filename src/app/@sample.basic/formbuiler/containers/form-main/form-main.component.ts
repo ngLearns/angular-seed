@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionService } from '@app/formbuiler/services/question.service';
+import { QuestionService } from '@app/@sample.basic/formbuiler/services/question.service';
 
 @Component({
   selector: 'app-form-main',

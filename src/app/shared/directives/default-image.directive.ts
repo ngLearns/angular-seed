@@ -1,4 +1,5 @@
-import { Directive, Input, HostListener, ElementRef } from '@angular/core';
+import { Directive, Input, HostListener, ElementRef, Output } from '@angular/core';
+import { EventEmitter } from 'protractor';
 
 /**
  * This directive transforms the path of an image with another if it is not found.
@@ -14,32 +15,43 @@ import { Directive, Input, HostListener, ElementRef } from '@angular/core';
  */
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: 'img[default]'
+    // tslint:disable-next-line:directive-selector
+    selector: 'img[default]'
 })
 export class DefaultImageDirective {
-  @Input()
-  default: string;
 
-  element: HTMLElement;
-  stopError: boolean;
+    _default: string = '/assets/images/no-image-available.png';
 
-  @HostListener('error')
-  onError() {
-    this.updateUrl();
-  }
+    element: HTMLElement;
+    stopError: boolean;
 
-  constructor(private elementRef: ElementRef) {
-    this.element = elementRef.nativeElement;
-  }
-
-  private updateUrl() {
-    // If the replacement image is not found , a loop is not generated
-    if (this.stopError) {
-      return;
+    @Input()
+    get default(): string {
+        return this._default;
     }
 
-    this.stopError = true;
-    this.element.setAttribute('src', this.default);
-  }
+    set default(value: string) {
+        if (value && value !== '') {
+            this._default = value;
+        }
+    }
+
+    @HostListener('error')
+    onError() {
+        this.updateUrl();
+    }
+
+    constructor(private elementRef: ElementRef) {
+        this.element = this.elementRef.nativeElement;
+    }
+
+    private updateUrl() {
+        // If the replacement image is not found , a loop is not generated
+        if (this.stopError) {
+            return;
+        }
+
+        this.stopError = true;
+        this.element.setAttribute('src', this.default);
+    }
 }

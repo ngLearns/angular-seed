@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
 
 import { featureAdapter, State } from './state';
-import { Joke } from '@app/jokes/models';
+import { Joke } from '@app/@sample.basic/jokes/models';
 
 export const getError = (state: State): any => state.error;
 

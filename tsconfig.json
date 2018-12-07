@@ -32,6 +32,7 @@
   },
   "exclude": [
     "dist",
-    "distPack"
+    "distPack",
+    "node_modules"
   ]
 }

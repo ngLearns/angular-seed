@@ -1,7 +1,10 @@
-### starter-seed 
+### starter-seed
+
+### Document structure
+#### Flowchart
 ```
 App
- ├── my-feature
+ ├── my-feature (in a @sample.{folder})
  │ ├── my-feature-routing.module.ts
  │ ├── my-feature.component.css
  │ ├── my-feature.component.html
@@ -18,39 +21,46 @@ App
  │ │    ├── index.ts
  │ │    ├── my-model.ts
  │ │    └── user.ts
- │ ├── root-store
+ │ ├── root-state
  │ │    ├── index.ts
- │ │    ├── root-store.module.ts
+ │ │    ├── root-state.module.ts
  │ │    ├── selectors.ts
- │ │    ├── state.ts
- │ │    ├── my-feature-store
+ │ │    ├── effects.ts
+ │ │    ├── reducer.ts
+ │ │    ├── state.ts (or interfaces.ts)
+ │ │    ├── my-feature-state
  │ │    │    ├── actions.ts
  │ │    │    ├── effects.ts
  │ │    │    ├── index.ts
  │ │    │    ├── reducer.ts
  │ │    │    ├── selectors.ts
- │ │    │    ├── state.ts
- │ │    │    └── my-feature-store.module.ts
- │ │    └── my-other-feature-store
- │ │         ├── actions.ts
- │ │         ├── effects.ts
- │ │         ├── index.ts
- │ │         ├── reducer.ts
- │ │         ├── selectors.ts
- │ │         ├── state.ts
- │ │         └── my-other-feature-store.module.ts
+ │ │    │    ├── state.ts (or interfaces.ts)
+ │ │    │    └── my-feature-state.module.ts
+ │ │    ├── my-other-feature-state
+ │ │    │    ├── actions.ts
+ │ │    │    ├── effects.ts
+ │ │    │    ├── index.ts
+ │ │    │    ├── reducer.ts
+ │ │    │    ├── selectors.ts
+ │ │    │    ├── state.ts (or interfaces.ts)
+ │ │    │    └── my-other-feature-state.module.ts
+ │ │    └── shared
+ │ │         ├── actions (include all *.action.ts)
+ │ │         ├── effects (include all *.effect.ts)
+ │ │         ├── reducers (include all *.reducer.ts & index.ts - all selectors)
+ │ │         └── ultils.ts
  │ └── services
  │       └── data.service.ts
- ├──── shares
+ ├──── shared (+)
  │     ├── directives
- │   	 ├── commons
- │   	 ├── pipes
- │   	 ├── animations
- │   	 ├── mocks
- │   	 ├── models
- │   	 └── utilites
+ │     ├── commons
+ │     ├── pipes
+ │     ├── animations
+ │     ├── mocks
+ │     ├── models
+ │ 	   └── utilites
  │
- ├──── cores
+ ├──── core (+)
  │   ├── (+) authentication
  │   │    ├── authentication.guard.ts
  │   │    ├── authentication.service.mock.ts
@@ -99,7 +109,7 @@ App
  ├──── index.html
  ├──── main.ts
  ├──── polyfills.ts
- ├──── styles.css
+ ├──── styles.scss
  ├──── test.ts
  ├──── tsconfig.app.json
  ├──── tsconfig.spec.json
@@ -108,16 +118,30 @@ App
  └──── tslint.json
 ```
 
-### How use projects/my-lib 
+#### Documents
+- my-feature.module.ts will import my-feature-state.module.ts
+- my-other-feature.module.ts will import my-other-feature-state.module.ts
+- ShellRoutingModule will lazy load feature-module other
+- SharedModule includes all: directives, components common
+- translation includes all file translate text offine *.json
+- theme includes: variables, themes, use smascss 
+- app-module is module root, includes:  
+    + CoreModule,
+    + SharedModule,
+    + AppRoutingModule,
+    + RootStoreModule
+- CoreModule: will import the librarys 3nd, no import in app-module.
+- directive img[default] default set url = /assets/images/no-image-available.png if no set value
+- Folder app will includes: 
+    + 1. @sample.basic includes all example basic to learn
+    + 2. @sample.user-site include project user site
+    + 3. @sample.admin-site include project administrator site
+    + 4. url prefix start with @sample-{folder}/project/routing
+- root-state:
+    + 
 
-#### # Install some awesome dependency to my-lib
+#### Plugins
+- Install some awesome dependency to my-lib
 ```
     npm i some-awesome-dependency --project=my-awesome-library --peer=true --dev=false
 ```
-
-#### Architecture store/*
-
-store_routing
-store_reduxs
-store_hotkeys
-store_themes

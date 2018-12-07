@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Joke } from '../../models';
-import { RootStoreState, JokeStoreSelectors, JokeStoreActions } from '@app/root-store';
+import { JokeStoreSelectors, JokeStoreActions, JokeStoreState } from '@app/root-state/joke-state';
 
 @Component({
   selector: 'app-jokes',
@@ -16,7 +16,7 @@ export class JokesComponent implements OnInit {
   error$: Observable<any>;
   isLoading$: Observable<boolean>;
 
-  constructor(private store$: Store<RootStoreState.State>) {}
+  constructor(private store$: Store<JokeStoreState.State>) {}
 
   ngOnInit() {
     this.jokes$ = this.store$.select(JokeStoreSelectors.selectAllJokeItems);

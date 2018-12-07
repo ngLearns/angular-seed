@@ -1,7 +1,7 @@
 import { Actions, ActionTypes } from './actions';
 import { featureAdapter, initialState, State } from './state';
 
-export function featureReducer(state: State = initialState, action: Actions): State {
+export function jokerReducer(state: State = initialState, action: Actions): State {
   switch (action.type) {
     case ActionTypes.LOAD_REQUEST: {
       return {

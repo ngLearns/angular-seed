@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Joke } from '@app/jokes/models';
+import { Joke } from '@app/@sample.basic/jokes/models';
 
 export enum ActionTypes {
   LOAD_REQUEST = '[Joke] Load Request',

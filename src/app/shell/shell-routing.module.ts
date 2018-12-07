@@ -8,10 +8,10 @@ const routes: Routes = [
     component: ShellComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'prefix' },
-      { path: 'home', loadChildren: '../home/home.module#HomeModule' },
-      { path: 'about', loadChildren: '../about/about.module#AboutModule' },
-      { path: 'joke', loadChildren: '../jokes/jokes.module#JokesModule' },
-      { path: 'formbuiler', loadChildren: '../formbuiler/formbuiler.module#FormbuilerModule' }
+      { path: 'home', loadChildren: '../@sample.basic/home/home.module#HomeModule' },
+      { path: 'about', loadChildren: '../@sample.basic/about/about.module#AboutModule' },
+      { path: 'joke', loadChildren: '../@sample.basic/jokes/jokes.module#JokesModule' },
+      { path: 'formbuiler', loadChildren: '../@sample.basic/formbuiler/formbuiler.module#FormbuilerModule' }
     ]
   }
 ];
