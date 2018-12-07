@@ -1,7 +1,9 @@
 ### starter-seed
 
 ### Document structure
+
 #### Flowchart
+
 ```
 App
  ├── my-feature (in a @sample.{folder})
@@ -76,15 +78,15 @@ App
  │   │    ├── http-adapter.service.ts
  │   │    ├── http-decorator.service.ts
  │   │    ├── http-cache.service.ts
- │   │    ├── utils.service.ts 
+ │   │    ├── utils.service.ts
  │   │    └── http.service.ts
- │   │	
+ │   │
  │   ├── i18n
  │   ├── logger
- │   └── RouteReuseStrategy 
+ │   └── RouteReuseStrategy
  │
  ├──── themes
- │     ├──── partils	
+ │     ├──── partils
  │     │  	├── styles.css|scss
  │     │  	├── _variables.css|scss
  │     │  	├── _layouts.css|scss
@@ -101,7 +103,7 @@ App
  │    	├── i18n
  │    	├── fonts
  │    	└── dists (js/css bundles)
- │    
+ │
  ├──── browserslist
  ├──── environments
  │ 	├── environment.prod.ts
@@ -119,29 +121,43 @@ App
 ```
 
 #### Documents
+
 - my-feature.module.ts will import my-feature-state.module.ts
 - my-other-feature.module.ts will import my-other-feature-state.module.ts
 - ShellRoutingModule will lazy load feature-module other
 - SharedModule includes all: directives, components common
-- translation includes all file translate text offine *.json
-- theme includes: variables, themes, use smascss 
-- app-module is module root, includes:  
-    + CoreModule,
-    + SharedModule,
-    + AppRoutingModule,
-    + RootStoreModule
+- translation includes all file translate text offine \*.json
+- theme includes: variables, themes, use smascss
+- app-module is module root, includes:
+  - CoreModule,
+  - SharedModule,
+  - AppRoutingModule,
+  - RootStoreModule
 - CoreModule: will import the librarys 3nd, no import in app-module.
 - directive img[default] default set url = /assets/images/no-image-available.png if no set value
-- Folder app will includes: 
-    + 1. @sample.basic includes all example basic to learn
-    + 2. @sample.user-site include project user site
-    + 3. @sample.admin-site include project administrator site
-    + 4. url prefix start with @sample-{folder}/project/routing
+- Folder app will includes:
+  - 1. @sample.basic includes all example basic to learn
+  - 2. @sample.user-site include project user site
+  - 3. @sample.admin-site include project administrator site
+  - 4. url prefix start with @sample-{folder}/project/routing
 - root-state:
-    + 
+  -
 
 #### Plugins
+
 - Install some awesome dependency to my-lib
+
 ```
     npm i some-awesome-dependency --project=my-awesome-library --peer=true --dev=false
+```
+
+#### Upgrade angular to 7
+
+```
+    https://appdividend.com/2018/10/20/how-to-update-angular-cli-to-version-7/
+    npm uninstall -g angular-cli
+    npm cache verify
+    ng update @angular/cli
+    ng update @angular/core
+    ng update rxjs
 ```

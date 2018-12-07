@@ -15,43 +15,42 @@ import { EventEmitter } from 'protractor';
  */
 
 @Directive({
-    // tslint:disable-next-line:directive-selector
-    selector: 'img[default]'
+  // tslint:disable-next-line:directive-selector
+  selector: 'img[default]'
 })
 export class DefaultImageDirective {
+  _default: string = '/assets/images/no-image-available.png';
 
-    _default: string = '/assets/images/no-image-available.png';
+  element: HTMLElement;
+  stopError: boolean;
 
-    element: HTMLElement;
-    stopError: boolean;
+  @Input()
+  get default(): string {
+    return this._default;
+  }
 
-    @Input()
-    get default(): string {
-        return this._default;
+  set default(value: string) {
+    if (value && value !== '') {
+      this._default = value;
+    }
+  }
+
+  @HostListener('error')
+  onError() {
+    this.updateUrl();
+  }
+
+  constructor(private elementRef: ElementRef) {
+    this.element = this.elementRef.nativeElement;
+  }
+
+  private updateUrl() {
+    // If the replacement image is not found , a loop is not generated
+    if (this.stopError) {
+      return;
     }
 
-    set default(value: string) {
-        if (value && value !== '') {
-            this._default = value;
-        }
-    }
-
-    @HostListener('error')
-    onError() {
-        this.updateUrl();
-    }
-
-    constructor(private elementRef: ElementRef) {
-        this.element = this.elementRef.nativeElement;
-    }
-
-    private updateUrl() {
-        // If the replacement image is not found , a loop is not generated
-        if (this.stopError) {
-            return;
-        }
-
-        this.stopError = true;
-        this.element.setAttribute('src', this.default);
-    }
+    this.stopError = true;
+    this.element.setAttribute('src', this.default);
+  }
 }
