@@ -1,1 +1,1 @@
-![ngnam.jpg](\images\icoOWFd0P.jpg)
+![ngnam.jpg](docs\images\icoOWFd0P.jpg)

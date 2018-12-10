@@ -7,11 +7,8 @@ const routes: Routes = [
     path: '',
     component: ShellComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'prefix' },
-      { path: 'home', loadChildren: '../@sample.basic/home/home.module#HomeModule' },
-      { path: 'about', loadChildren: '../@sample.basic/about/about.module#AboutModule' },
-      { path: 'joke', loadChildren: '../@sample.basic/jokes/jokes.module#JokesModule' },
-      { path: 'formbuiler', loadChildren: '../@sample.basic/formbuiler/formbuiler.module#FormbuilerModule' }
+      { path: '', redirectTo: 'sample-basic/home', pathMatch: 'prefix' },
+      { path: 'sample-basic', loadChildren: '../@sample.basic/sample-basic.module#SampleBasicModule' }
     ]
   }
 ];

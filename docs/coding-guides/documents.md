@@ -1,0 +1,21 @@
+## Documents
+
+- my-feature.module.ts will import my-feature-state.module.ts
+- my-other-feature.module.ts will import my-other-feature-state.module.ts
+- ShellRoutingModule will lazy load feature-module other
+- SharedModule includes all: directives, components common
+- translation includes all file translate text offine \*.json
+- theme includes: variables, themes, use smascss
+- app-module is module root, includes:
+  - CoreModule,
+  - SharedModule,
+  - AppRoutingModule,
+  - RootStoreModule
+- CoreModule: will import the librarys 3nd, no import in app-module.
+- directive img[default] default set url = /assets/images/no-image-available.png if no set value
+- Folder app will includes:
+  - 1. @sample.basic includes all example basic to learn
+  - 2. @sample.user-site include project user site
+  - 3. @sample.admin-site include project administrator site
+        - [SB-Admin-BS4-Angular-6](https://github.com/start-angular/SB-Admin-BS4-Angular-6)
+  - 4. url prefix start with @sample-{folder}/project/routing
