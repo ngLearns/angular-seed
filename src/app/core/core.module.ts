@@ -1,4 +1,5 @@
 import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
+import { ApiAuthenticationInterceptor } from './http/api-authentication.interceptor';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 import { AuthenticationService } from './authentication/authentication.service';
 import { CacheInterceptor } from './http/cache.interceptor';
@@ -23,6 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
     I18nService,
     HttpCacheService,
     ApiPrefixInterceptor,
+    ApiAuthenticationInterceptor,
     ErrorHandlerInterceptor,
     CacheInterceptor,
     {
