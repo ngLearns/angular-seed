@@ -1,0 +1,31 @@
+/* https://css-tricks.com/snippets/javascript/javascript-keycodes/ */
+// define keycode
+export enum ShortcutKeyCode {
+  KeyEnter = 13,
+  KeyNumber1 = 49,
+  KeyNumber2 = 50,
+  KeyNumber3 = 51,
+  KeyNumber4 = 52,
+  KeyNumber5 = 53,
+  KeyNumber6 = 54,
+  KeyNumber7 = 55,
+  KeyNumber8 = 56,
+  KeyNumber9 = 57,
+  KeyG = 71,
+  KeyD = 68,
+  KeyS = 83,
+  KeyZ = 90,
+  KeyI = 73,
+  KeyM = 77,
+  KeyB = 66,
+  KeyK = 75,
+  KeyF = 70,
+  KeyE = 69,
+  space = 32,
+  backspace = 8,
+  tab = 9,
+  shift = 16,
+  ctrl = 17,
+  alt = 18,
+  pauseOrbreak = 19
+}

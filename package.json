@@ -36,6 +36,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ngrx/effects": "^6.1.2",
     "@ngrx/entity": "^6.1.2",
+    "@ngrx/router-store": "^6.1.2",
     "@ngrx/store": "^6.1.2",
     "@ngx-pwa/local-storage": "^6.2.0",
     "@ngx-pwa/offline": "^6.1.0",

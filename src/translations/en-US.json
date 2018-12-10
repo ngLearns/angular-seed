@@ -17,5 +17,14 @@
     "my-component": {
       "my-translate": "My translate"
     }
-  }
+  },
+  "HttpStatusText.0": "Server is not available",
+  "HttpStatusText.400": "Bad request",
+  "HttpStatusText.401": "Unauthorized",
+  "HttpStatusText.404": "Not found",
+  "HttpStatusText.409": "Conflict",
+  "HttpStatusText.410": "Gone",
+  "HttpStatusText.500": "Internal server error",
+  "HttpStatusText.502": "Bad gateway",
+  "HttpStatusText.504": "Gateway timeout"
 }

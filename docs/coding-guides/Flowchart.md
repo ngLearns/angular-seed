@@ -51,11 +51,20 @@ App
  │       └── data.service.ts
  ├──── shared (+)
  │     ├── directives
- │     ├── commons
+ │     ├── commons/components
+ │     │     ├──  loader
+ │     │     ├──  alert
+ │     │     └──  modal (dialog/confirm/popup)
  │     ├── pipes
  │     ├── animations
  │     ├── mocks
  │     ├── models
+ │     ├── enums 
+ │     │     ├── shortcut-key-code
+ │     │     └── http-status-code
+ │     ├── app-const 
+ │     │     ├── alert-type
+ │     │     └── app-const
  │ 	   └── utilites
  │
  ├──── core (+)
@@ -70,6 +79,7 @@ App
  │   ├── (+) http
  │   │    ├── cache.interceptor.ts
  │   │    ├── api-prefix.interceptor.ts
+ │   │    ├── api-authentication.interceptor.ts
  │   │    ├── error-handler.interceptor.ts
  │   │    ├── http-adapter.service.ts
  │   │    ├── http-decorator.service.ts
