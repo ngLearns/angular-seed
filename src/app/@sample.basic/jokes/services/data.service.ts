@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError, delay } from 'rxjs/operators';
 import { Joke, JokeResult } from '../models';
-import { HttpService } from '@app/core';
 
 const routes = {
     joke: () => `assets/api/joke.json`
