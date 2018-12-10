@@ -3,26 +3,28 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError, delay } from 'rxjs/operators';
 import { Joke, JokeResult } from '../models';
+import { HttpService } from '@app/core';
 
 const routes = {
-  joke: () => `assets/api/joke.json`
+    joke: () => `assets/api/joke.json`
 };
 
 @Injectable()
 export class DataService {
-  private delay = 2000;
-  constructor(private httpClient: HttpClient) {}
-  getJokes(): Observable<Joke[]> {
-    return this.httpClient
-      .cache()
-      .get(routes.joke())
-      .pipe(
-        delay(this.delay),
-        map((body: any) => {
-          console.log(body);
-          return body;
-        }),
-        catchError(() => of('Error, could not load joke :-('))
-      );
-  }
+    private delay = 2000;
+    constructor(private httpClient: HttpClient) {
+    }
+    getJokes(): Observable<Joke[]> {
+        return this.httpClient
+            .cache()
+            .disableApiAuthentication()
+            .get(routes.joke())
+            .pipe(
+                delay(this.delay),
+                map((body: any) => {
+                    return body;
+                }),
+                catchError(() => of('Error, could not load joke :-('))
+            );
+    }
 }

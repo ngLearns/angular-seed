@@ -31,6 +31,12 @@ declare module '@angular/common/http/src/client' {
      * @return The new instance.
      */
     disableApiPrefix(): HttpClient;
+
+    /**
+     * Do not use API authentication for this request.
+     * @return The new instance.
+     */
+    disableApiAuthentication(): HttpClient;
   }
 }
 
@@ -84,6 +90,10 @@ export class HttpService extends HttpClient {
 
   disableApiPrefix(): HttpClient {
     return this.removeInterceptor(ApiPrefixInterceptor);
+  }
+
+  disableApiAuthentication(): HttpClient {
+      return this.removeInterceptor(ApiAuthenticationInterceptor);
   }
 
   // Override the original method to wire interceptors when triggering the request.
