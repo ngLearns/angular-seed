@@ -75,7 +75,11 @@ export class HttpService extends HttpClient {
 
     if (!this.interceptors) {
       // Configure default interceptors that can be disabled here
-      this.interceptors = [this.injector.get(ApiPrefixInterceptor), this.injector.get(ErrorHandlerInterceptor), this.injector.get(ApiAuthenticationInterceptor)];
+      this.interceptors = [
+        this.injector.get(ApiPrefixInterceptor),
+        this.injector.get(ErrorHandlerInterceptor),
+        this.injector.get(ApiAuthenticationInterceptor)
+      ];
     }
   }
 
@@ -93,7 +97,7 @@ export class HttpService extends HttpClient {
   }
 
   disableApiAuthentication(): HttpClient {
-      return this.removeInterceptor(ApiAuthenticationInterceptor);
+    return this.removeInterceptor(ApiAuthenticationInterceptor);
   }
 
   // Override the original method to wire interceptors when triggering the request.

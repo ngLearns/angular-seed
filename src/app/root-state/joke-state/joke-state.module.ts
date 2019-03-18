@@ -7,4 +7,4 @@ import { jokerReducer } from './reducer';
 @NgModule({
   imports: [StoreModule.forFeature('joke', jokerReducer), EffectsModule.forFeature([JokeStoreEffects])]
 })
-export class JokeStateModule { }
+export class JokeStateModule {}

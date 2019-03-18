@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { DefaultImageDirective } from './directives/default-image.directive';
 import { LoaderComponent } from './commons/loader/loader.component';
-import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  imports: [CommonModule, NgbAlert],
+  imports: [CommonModule],
   declarations: [LoaderComponent, DefaultImageDirective],
   exports: [LoaderComponent, DefaultImageDirective]
 })

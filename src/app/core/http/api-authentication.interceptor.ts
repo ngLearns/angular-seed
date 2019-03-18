@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
  */
 @Injectable()
 export class ApiAuthenticationInterceptor implements HttpInterceptor {
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (this.authenticationService.credentials) {
-            request = request.clone({
-                setHeaders: { 'Authorization': `Bearer ${this.authenticationService.credentials.token}` }
-            });
-        }
-        return next.handle(request);
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (this.authenticationService.credentials) {
+      request = request.clone({
+        setHeaders: { Authorization: `Bearer ${this.authenticationService.credentials.token}` }
+      });
     }
+    return next.handle(request);
+  }
 
-    constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService) {}
 }

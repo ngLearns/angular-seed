@@ -9,11 +9,6 @@ import { HeaderComponent } from './header.component';
 
 @NgModule({
   declarations: [SampleBasicComponent, HeaderComponent],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NgbModule,
-    SampleBasicRoutingModule
-  ]
+  imports: [CommonModule, TranslateModule, NgbModule, SampleBasicRoutingModule]
 })
-export class SampleBasicModule { }
+export class SampleBasicModule {}

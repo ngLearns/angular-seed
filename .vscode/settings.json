@@ -1,0 +1,8 @@
+{
+  "window.zoomLevel": 0,
+  "vsicons.projectDetection.autoReload": true,
+  "workbench.iconTheme": "vscode-icons",
+  "files.autoSave": "off",
+  "editor.renderWhitespace": "all",
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

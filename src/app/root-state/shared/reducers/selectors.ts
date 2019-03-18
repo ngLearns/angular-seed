@@ -2,10 +2,10 @@ import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/s
 import * as fromSpinner from './spinner.reducer';
 
 export const selectSpinnerEntity: MemoizedSelector<object, fromSpinner.State> = createFeatureSelector<
-    fromSpinner.State
+  fromSpinner.State
 >('spinner');
 
 export const isSpinnerShowing = createSelector(
-    selectSpinnerEntity,
-    fromSpinner.isShowing
+  selectSpinnerEntity,
+  fromSpinner.isShowing
 );
